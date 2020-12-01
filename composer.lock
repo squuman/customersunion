@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "69e3416db3e3f498975da03d4567ed28",
+    "packages": [
+        {
+            "name": "retailcrm/api-client-php",
+            "version": "v5.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/retailcrm/api-client-php.git",
+                "reference": "d566d2b344e70dab17d9d75f5cbdbe58f776ab09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/retailcrm/api-client-php/zipball/d566d2b344e70dab17d9d75f5cbdbe58f776ab09",
+                "reference": "d566d2b344e70dab17d9d75f5cbdbe58f776ab09",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-fileinfo": "*",
+                "ext-json": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.*",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "RetailCrm\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "retailCRM",
+                    "email": "support@retailcrm.ru"
+                }
+            ],
+            "description": "PHP client for retailCRM API",
+            "homepage": "http://www.retailcrm.ru/",
+            "keywords": [
+                "api",
+                "rest",
+                "retailCRM"
+            ],
+            "time": "2020-09-24T11:02:25+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

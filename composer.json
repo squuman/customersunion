@@ -1,0 +1,6 @@
+{
+    "name": "astar/sand-2782",
+    "require": {
+        "retailcrm/api-client-php": "~5.0"
+    }
+}
