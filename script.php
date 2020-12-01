@@ -15,8 +15,11 @@ $totalCount = $customerRequest['pagination']['totalCount'];
 for ($i = 1; $i <= $totalCount;$i++) {
     $customers = $client->request->customersList([],$i,100);
     foreach ($customers['customers'] as $customer) {
-        print_r($customer);
-        $combineCustomers->checkByFields($customer,['email','firstName']);
+        $combineIds = $combineCustomers->findCustomersByFields($customer,['email','firstName']);
+        if (isset($combineIds['warning']))
+            continue;
+        print_r($customer['id']);
+        print_r($combineIds);
         die;
     }
 }

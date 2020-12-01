@@ -15,20 +15,42 @@ class CombineCustomers
         );
     }
 
-    public function checkByFields($customerCheck = array(), $fields = array()) : Array {
-        $filter = $this->generateFilter($customerCheck,$fields);
-        $customers = $this->api->request->customersList($filter,1,100);
+    public function findCustomersByFields($customerCheck = array(), $fields = array()): array
+    {
+        $filter = $this->generateFilter($customerCheck, $fields);
+        $customers = $this->api->request->customersList($filter, 1, 100);
         $totalCount = $customers['pagination']['totalCount'];
+        $combineCustomersId = [];
+        for ($i = 1; $i <= $totalCount; $i++) {
+            foreach ($customers['customers'] as $customer) {
+                if ($customer['id'] != $customerCheck['id'] and !in_array($customer['id'],$combineCustomersId)) {
+                    $combineCustomersId[] = $customer['id'];
+                    print_r($customer);
+                }
 
+            }
+        }
 
-        return [];
+        if (empty($combineCustomersId))
+            return [
+              'warning' => 'customers not found'
+            ];
+
+        return $combineCustomersId;
     }
 
-    private function generateFilter($customerCheck,$fields = []) : Array {
+    private function generateFilter($customerCheck, $fields = []): array
+    {
+        if (empty($fields))
+            return [];
+
         $filter = [];
+
         foreach ($fields as $field) {
             if ($field == 'phone')
                 $filter[$field] = $customerCheck['phones'][0]['number'];
+            elseif (in_array($field, ['firstName', 'lastName', 'patronymic']))
+                $filter['name'] = $customerCheck[$field];
             else
                 $filter[$field] = $customerCheck[$field];
         }
